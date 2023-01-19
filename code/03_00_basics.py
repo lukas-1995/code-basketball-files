@@ -5,7 +5,7 @@ import pandas as pd
 # stored
 # on Windows it might be something like 'C:/mydir'
 
-DATA_DIR = './data'
+DATA_DIR = 'C:/Users/lukas/Documents/code-basketball-files/data'
 
 ##############
 # Loading data
@@ -71,6 +71,8 @@ shots_ot.head()
 
 shots_ot.sort_values('name', inplace=True)
 shots_ot.head()
+
+shots_ot.shape
 
 # assigning a new column
 shots_ot['made'] = shots['made']
