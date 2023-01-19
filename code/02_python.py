@@ -55,6 +55,8 @@ starters
 ####################################
 'lebron james'.capitalize()
 
+'lebron james'.isdigit()
+
 '  lebron james'
 'lebron james'
 
