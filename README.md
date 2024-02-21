@@ -23,6 +23,25 @@ If I were using Windows, it might look like this:
 Set these aside for now and we'll pick them up in chapter 2.
 
 ## Changelog
+### v0.2.0 (2024-02-07)
+Updated the API chapter since the old API stopped working. Now using [Ball
+Don't Lie](https://www.balldontlie.io/#introduction). Fixed some typos (thanks
+Alex!)
+
+### v0.1.4 (2023-12-01)
+Fixed some typos and updates (thanks Alex!)
+
+### v0.1.3 (2023-11-15)
+Fixed some typos.
+
+### v0.1.1 (2023-09-21)
+Minor clarify fix to exercise 3.0.x (thanks Terence!)
+
+### v0.1.0 (2023-04-21)
+Heard from a reader (thanks Arnold!) that some of the nbasense API endpoints no
+longer worked, and updated the book to use only the ones that do. Doesn't
+impact things too much since this was mainly for demonstration purposes.
+
 ### v0.0.4 (2022-12-16)
 Fixed a few typos (thanks Victor!)
 
