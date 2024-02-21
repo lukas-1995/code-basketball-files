@@ -88,3 +88,41 @@ shots_ot.to_csv(path.join(DATA_DIR, 'shots_ot.csv'))
 
 shots_ot.to_csv(path.join(DATA_DIR, 'shots_ot_no_index.csv'), index=False)
 
+#################
+# Exercises
+#################
+
+import pandas as pd
+import os
+
+# 3.1
+
+DATA_DIR = 'C:/Users/lukas/Documents/code-basketball-files/data'
+games = pd.read_csv(os.path.join(DATA_DIR, 'games.csv'))
+
+# 3.2
+
+games50 = games.sort_values('date')[0:49]
+len(games50)
+
+# 3.3
+
+games50 = games50.sort_values('home_pts', ascending=False)
+print(games50['home_pts'])
+
+# 3.4
+type(games50.sort_values('home_pts'))
+
+#3.5
+
+game_simple = games[['date', 'home', 'away', 'home_pts', 'away_pts']]
+game_simple.head()
+
+game_simple = game_simple[['home', 'away', 'date', 'home_pts', 'away_pts']]
+game_simple.head()
+
+game_simple['game_id'] = games['game_id']
+game_simple.head()
+
+game_simple.to_csv(os.path.join(DATA_DIR, 'game_simple.csv'), sep='|')
+

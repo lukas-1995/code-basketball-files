@@ -51,3 +51,34 @@ pg['pos'].value_counts()
 pg['pos'].value_counts(normalize=True)
 
 pd.crosstab(pg['team'], pg['pos']).head()
+
+######## Exercises
+
+# 3.2.1
+pg = pd.read_csv(path.join(DATA_DIR, 'player_game.csv'))
+
+# 3.2.2
+pg['total_shots1'] = pg['fga'] + pg['fta']
+pg['total_shots2'] =  pg[['fga', 'fta']].sum(axis=1)
+
+pg[['name', 'total_shots1', 'total_shots2']].head()
+
+(pg['total_shots1'] == pg['total_shots2']).all()
+
+# 3.2.3
+pg[['pts', 'fga', 'reb']].mean()
+
+# pts    10.659413
+# fga     8.403500
+# reb     4.242668
+
+((pg['pts']>=40) & (pg['reb']>=10)).sum()
+# 3
+((pg['pts']>=40) & (pg['reb']>=10)).sum()/(pg['pts']>=40).sum()
+# 0.3
+
+pg['fg3a'].sum()
+# 6809
+
+pg['team'].value_counts().sort_values
+# ORL

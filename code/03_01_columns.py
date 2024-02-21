@@ -5,7 +5,7 @@ from os import path
 # stored
 # on Windows it might be something like 'C:/mydir'
 
-DATA_DIR = './data'
+DATA_DIR = 'C:/Users/lukas/Documents/code-basketball-files/data'
 
 # load player-game data
 pg = pd.read_csv(path.join(DATA_DIR, 'player_game.csv'))
@@ -110,3 +110,48 @@ pg[['name', 'team', 'month', 'date']].sample(5)
 pg['month'].astype(int).sample(5)
 
 pg.dtypes.head()
+
+
+####### Exercises
+
+# 3.1.1
+pg = pd.read_csv(path.join(DATA_DIR, 'player_game.csv'))
+pg.head()
+
+# 3.1.2
+pg['net_takeaways'] = pg['stl'] - pg['tov']
+pg[['name', 'net_takeaways']].head()
+
+# 3.1.3
+pg['player_desc'] = pg['name'] + ' is the ' + pg['team'] + ' ' + pg['pos']
+pg['player_desc'].head()
+
+#3.1.4
+pg['bad_game'] = (pg['fga']>20) & (pg['pts']<15)
+pg[['name', 'bad_game']].head()
+
+# 3.1.5
+pg['len_last_name'] = pg['name'].apply(lambda x: len(x.split(' ')[-1]))
+pg[['name', 'len_last_name']].head()
+
+# 3.1.6
+pg['game_id'] = str(pg['game_id'])
+type(pg['game_id'][0])
+
+# 3.1.7
+pg.columns = [x.replace('_', ' ') for x in pg.columns]
+pg.columns
+
+pg.columns = [x.replace(' ', '_') for x in pg.columns]
+pg.columns
+
+# 3.1.8
+pg['oreb_percentage'] = pg['oreb']/(pg['reb'])
+pg[['name', 'oreb_percentage']].head()
+
+pg['oreb_percentage'] = pg['oreb_percentage'].fillna(-99)
+pg['oreb_percentage'].head()
+
+# 3.1.9
+pg = pg.drop('oreb_percentage', axis=1)
+pg.columns
